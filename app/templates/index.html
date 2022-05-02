@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<body>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+    <label for="items">Choose a Item</label>
+    <select id="items">
+    {% for d in data %}
+    <option value="{{d.id}}" {% ifequal d.id prodcut.id %}selected {% else %} {% endifequal  %}>{{d}} -- {{d.price}}</option>
+    {% endfor %}
+    </select><br><br>
+    <input type="hidden" name="id" id="prod_id" value="1">
+    <label for="Quantity">Enter Quantity</label>
+    <input type="number" name="quantity" placeholder="Enter Quantity" value="{% if quantity %}{{quantity}}{% else %}1{% endif %}" ><br><br>
+    <label for="total">Total</label>
+    <input type="text" value="{% if price %}{{price}}{% else %}0{% endif %}"><br><br>
+    <input type="submit" value="submit">
+</form>
+<script>
+    $('#items').on('change', function() {
+        $('#prod_id').val(this.value)
+});
+</script>
+</body>
+</html>
