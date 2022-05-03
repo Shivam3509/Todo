@@ -14,10 +14,11 @@
     <label for="items">Choose a Item</label>
     <select id="items">
     {% for d in data %}
-    <option value="{{d.id}}" {% ifequal d.id prodcut.id %}selected {% else %} {% endifequal  %}>{{d}} -- {{d.price}}</option>
+    <option value="{{d.id}}" {% ifequal d.id prodcut.id %} selected="selected" {% else %} {% endifequal %}>{{d}} -- {{d.price}}</option>
     {% endfor %}
     </select><br><br>
     <input type="hidden" name="id" id="prod_id" value="1">
+    <input type="hidden" name="time"  value="">
     <label for="Quantity">Enter Quantity</label>
     <input type="number" name="quantity" placeholder="Enter Quantity" value="{% if quantity %}{{quantity}}{% else %}1{% endif %}" ><br><br>
     <label for="total">Total</label>
@@ -29,5 +30,24 @@
         $('#prod_id').val(this.value)
 });
 </script>
+{% for s in data %}
+<p>{{s.productname}}</p>
+<table border="1px solid black" >
+    <tr>
+        <th>id</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Time</th>
+    </tr>
+    {% for rec in s.records.all %}
+    <tr>
+      <td>{{rec.id}}</td>
+      <td>{{rec.quantity}}</td>
+      <td>{{rec.price}}</td>
+      <td>{{rec.time}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
 </body>
 </html>
