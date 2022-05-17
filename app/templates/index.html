@@ -39,12 +39,12 @@
         <th>Price</th>
         <th>Time</th>
     </tr>
-    {% for rec in s.records.all %}
+    {% for a in all %}
     <tr>
-      <td>{{rec.id}}</td>
-      <td>{{rec.quantity}}</td>
+      <td>{{a}}</td>
+      {% comment %} <td>{{rec.quantity}}</td>
       <td>{{rec.price}}</td>
-      <td>{{rec.time}}</td>
+      <td>{{rec.time}}</td> {% endcomment %}
     </tr>
     {% endfor %}
 </table>

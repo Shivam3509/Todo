@@ -1,0 +1,39 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Staff User</th>
+        <th scope="col">Super User</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for all in alluser %}
+      <tr>
+        <th scope="row">{{all.id}}</th>
+        <td>{{all.username}}</td>
+        <td>{{all.email}}</td>
+        
+        <td>
+            {% if all.is_staff %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" height="20px" width="20px"> 
+            {% else %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png" height="20px" width="20px">{% endif %}
+        </td>
+        <td>
+        {% if all.is_superuser %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png" height="20px" width="20px"> 
+            {% else %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png" height="20px" width="20px">{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>

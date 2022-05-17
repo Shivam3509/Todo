@@ -1,0 +1,45 @@
+{% include "sidebar.html" %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<form class="form-horizontal" action="{% url 'customer' %}" method="post">
+<fieldset>
+{% csrf_token %}
+<!-- Form Name -->
+<legend class="text-center">CUSTOMER</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="customer_name">Customer Name</label>  
+  <div class="col-md-4">
+  <input id="customer_name" name="customer_name" placeholder="CUSTOMER NAME"     class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-4 control-label" for="shop_name">Shop Name</label>  
+    <div class="col-md-4">
+    <input id="shop_name" name="shop_name" placeholder="Enter Shop Name"     class="form-control input-md" required="" type="text">
+    </div>
+  </div>
+
+<div class="form-group">
+    <label class="col-md-4 control-label" for="address">Address</label>  
+    <div class="col-md-4">
+    <input id="address" name="address" placeholder="Enter Address" class="form-control input-md" required="" type="text"><br>
+    <div class="col-md-4">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+<!-- Button -->
+<div class="form-group">
+  <!-- <label class="col-md-4 control-label" for="singlebutton">Single Button</label> -->
+ 
+  </div>
+
+</fieldset>
+</form>

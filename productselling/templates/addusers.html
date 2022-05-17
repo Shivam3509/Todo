@@ -1,0 +1,80 @@
+{% include "sidebar.html" %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container-fluid">
+        <div class="col-lg-12 col-xl-11">>
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add User</p>
+  
+                  <form class="mx-1 mx-md-4" action="{% url 'add' %}" method="post">
+                        {% csrf_token %}
+                        {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                        {% endif %}
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example1c" name="username" class="form-control" required />
+                        <label class="form-label" for="form3Example1c">Username</label>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="email" id="form3Example3c" name="email" class="form-control" required/>
+                        <label class="form-label" for="form3Example3c">Your Email</label>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="password" id="form3Example4c" name="password" class="form-control" required/>
+                        <label class="form-label" for="form3Example4c">Password</label>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="password" id="form3Example4cd" name="confirm_password" class="form-control" required/>
+                        <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="staff">User Status</label>
+                        <div class="col-md-12">
+                          <select id="staff" name="staff" class="form-control">
+                              <option>Select One Option</option>
+                              <option value="1">Admin</option>
+                              <option value="2">Super Admin</option>
+                              <option value="3">Admin and SuperAdmin</option>
+                          </select>
+                        </div><br>
+
+                    <div class="text-center">
+                      <button type="submit" value="1" class="btn btn-primary btn-lg">ADD</button><br><br>
+                    </div>
+  
+                  </form>
+                  <div class="text-center">
+                    <a href="{% url 'userlist' %}"  class="btn btn-warning">Users List</a>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+        </div>
+    </div>
+  </section>

@@ -1,0 +1,66 @@
+{% include "sidebar.html" %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<form class="form-horizontal" action="{% url 'product' %}" method="post">
+<fieldset>
+{% csrf_token %}
+<!-- Form Name -->
+<legend class="text-center">PRODUCTS</legend>
+{% if messages %}
+<ul class="messages text-center">
+{% for message in messages %}
+<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>  
+  <div class="col-md-4">
+  <input id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_categorie">PRODUCT CATEGORY</label>
+  <div class="col-md-4">
+    <select id="product_categorie" name="product_categorie" class="form-control">
+        <option value="electronics">Electronics</option>
+        <option value="fourniture">Fourniture</option>
+        <option value="mobile">Mobile</option>
+        <option value="clothes">Clothes</option>
+        <option value="shoes">Shoes</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>  
+  <div class="col-md-4">
+    <input id="available_quantity" name="available_quantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-4 control-label" for="price">Price</label>  
+    <div class="col-md-4">
+    <input id="price" name="price" placeholder="Enter Price" class="form-control input-md" required="" type="text"><br>
+    <div class="col-md-4">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+<!-- Button -->
+<div class="form-group">
+  <!-- <label class="col-md-4 control-label" for="singlebutton">Single Button</label> -->
+ 
+  </div>
+
+</fieldset>
+</form>
